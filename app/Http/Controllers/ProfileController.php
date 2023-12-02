@@ -57,4 +57,11 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function createToken(Request $request): array
+    {
+        $token = $request->user()->createToken('test');
+
+        return ['token' => $token->plainTextToken];
+    }
 }
