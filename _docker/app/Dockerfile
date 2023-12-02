@@ -14,9 +14,18 @@ RUN apt-get update && apt-get install -y \
       apt-get clean && \
       rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN apt update && apt install -y \
-    nodejs \
-    npm
+#RUN pecl install mongodb && docker-php-ext-enable mongodb
+#RUN echo "extension=mongodb.so" >> /usr/local/etc/php/php.ini
+
+RUN docker-php-ext-configure pcntl --enable-pcntl \
+  && docker-php-ext-install \
+    pcntl
+
+
+#RUN apt update && apt install -y \
+#    nodejs \
+#    npm
+
 
 COPY ./_docker/app/php.ini /usr/local/etc/php/conf.d/php.ini
 
