@@ -24,6 +24,8 @@ services:
             - ./:/var/www
         depends_on:
             - db
+            - redis
+            - mongo
         container_name: app_project
 
     db:
