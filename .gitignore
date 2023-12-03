@@ -23,3 +23,4 @@ package-lock.json
 _docker/tmp/*
 _docker/mongo/*
 .bash_history
+.composer

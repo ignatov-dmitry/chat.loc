@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    \App\Models\Thread::create(['title' => 'The Fault in Our Stars']);
     return view('welcome');
 });
 
