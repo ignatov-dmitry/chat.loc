@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Chat;
 
 
 use MongoDB\Laravel\Eloquent\Model;
@@ -13,9 +13,5 @@ class Thread extends Model
 
     protected $collection = 'threads';
     protected $connection = 'mongodb';
-
-    protected $fillable = ['title'];
-
-    public $timestamps = false;
 
 }
