@@ -21,6 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('threads_schema');
+        Schema::connection('mongodb')->dropIfExists('threads_schema');
     }
 };
