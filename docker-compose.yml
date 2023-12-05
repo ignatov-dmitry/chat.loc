@@ -24,34 +24,34 @@ services:
         volumes:
             - ./:/var/www
         depends_on:
-            - db
+            - mysql
             - redis
             - mongo
         container_name: app_project
 
-    db:
+    mysql:
         image: mysql:8.0
         restart: always
         volumes:
-            - ./_docker/tmp/db:/var/lib/mysql
+            - ./_docker/mysql:/var/lib/mysql
         environment:
             MYSQL_DATABASE: ${DB_DATABASE}
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
         ports:
             - 8101:3306
         command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
-        container_name: app_db
+        container_name: app_mysql
 
     redis:
         image: redis:latest
         ports:
             - "${REDIS_PORT}:6379"
-        container_name: app_redis
         volumes:
             - ./_docker/redis/data:/var/lib/redis
             - ./_docker/redis/conf:/usr/local/etc/redis/redis.conf
         environment:
             TZ: ${WORKSPACE_TIMEZONE}
+        container_name: app_redis
 
     mongo:
         image: mongo

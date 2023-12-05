@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('chat_participants', function (Blueprint $table) {
+        Schema::connection('mongodb')->create('participants', function (Blueprint $table) {
             $table->id();
-            $table->
-            $table->timestamps();
+            $table->string('thread_id');
+            $table->string('participant_id');
         });
     }
 
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('chat_participants');
+        Schema::connection('mongodb')->dropIfExists('chat_participants');
     }
 };

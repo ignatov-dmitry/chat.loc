@@ -12,5 +12,5 @@ class Participant extends Model
     protected $collection = 'participants';
     protected $connection = 'mongodb';
 
-    protected $fillable = ['thread_id', 'sender_id', 'receiver_id', 'message', 'read_at'];
+    protected $fillable = ['thread_id', 'participant_id'];
 }
