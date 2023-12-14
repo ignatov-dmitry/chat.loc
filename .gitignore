@@ -1,2 +1,3 @@
 _docker/mysql
 _docker/mongo/db
+.idea
